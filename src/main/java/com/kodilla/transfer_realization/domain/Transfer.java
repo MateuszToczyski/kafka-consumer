@@ -5,7 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity(name = "transfers")
 @Getter
@@ -13,4 +14,20 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Transfer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "recipient_account")
+    private String recipientAccount;
+
+    @Column(name = "sender_account")
+    private String senderAccount;
+
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "amount")
+    private BigDecimal amount;
 }
